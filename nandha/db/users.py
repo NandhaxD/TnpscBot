@@ -1,5 +1,4 @@
 
-
 from nandha import database, LOG
 
 collection = database['users']
@@ -11,8 +10,6 @@ BLOCKED_USERS = []
 async def check_user_exists(user_id: int):
     user = await collection.find_one({'user_id': user_id})
     return True if user else False
-
-
 
 async def add_user(obj):
     try:
@@ -31,13 +28,10 @@ async def add_user(obj):
         LOG.error(f"Error adding user: {e}")
 
 
-
-
 async def get_all_blocked_users():
-      users = await collection.find(
-             {'blocked': True}, {'user_id': 1}
-      ).to_list(length=None)
-      return [ user['user_id'] for user in users ] if users else []
+        users = await collection.find(
+            {'blocked': True}, {'user_id': 1}).to_list(length=None)
+        return [ user['user_id'] for user in users ] if users else []
 
 
 async def initialize_blocked_users():
@@ -114,7 +108,7 @@ async def get_users_by_username(username):
 async def get_user_id_by_username(username):
     try:
         user = await collection.find_one(
-          {'username': {'$regex': username, '$options': 'i'}}
+        {'username': {'$regex': username, '$options': 'i'}}
         )
         return user['user_id'] if user else None
     except Exception as e:
@@ -134,8 +128,6 @@ async def update_users_status_to_inactive(users_id: list):
     result = await collection.update_many(filter, update)
     return result.modified_count > 0
 
-
-# premium field
 
 async def update_user_premium(user_id: int, premium: bool):
     try:
