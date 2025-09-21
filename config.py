@@ -1,6 +1,6 @@
 
 
-
+name = 'tnpsc'
 bot_token = ''
 bot_id = int(bot_token.split(':')[0])
 support = 'NandhaSupport'
