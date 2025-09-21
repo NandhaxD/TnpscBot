@@ -1,3 +1,3 @@
-kurigram
+pyrofork
 tgcrypto
 motor[srv]
