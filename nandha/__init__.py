@@ -3,16 +3,19 @@ from pyrogram import Client, enums
 from motor.motor_asyncio import AsyncIOMotorClient
 from nandha.fonts import Fonts
 
+import pyrogram
 import config
 import logging
+
+pyrogram.filters.command.__defaults__ = (
+    config.PREFIXES, False
+)
 
 
 LOG = logging.getLogger(__name__)
 
 
-
 font = Fonts.sim
-
 
 bot = Client(
     name='Tnpsc-Robot',

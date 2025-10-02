@@ -19,5 +19,8 @@ def only_devs(func):
         user = message.from_user
         if user.id not in config.devs_list:
             return await message.reply_text(
-                    text='<b>This command is restricted to developers only!</b>'
-    )
+                text='<b>This command is restricted to developers only!</b>'
+            )
+        return await func(bot, message)
+    
+    return wrapper

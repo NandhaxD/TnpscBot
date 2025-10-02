@@ -1,13 +1,18 @@
+import os
 
-
-name = 'tnpsc'
+name = 'TNPSC_ROBOT'
 bot_token = ''
 bot_id = int(bot_token.split(':')[0])
 support = 'NandhaSupport'
-update = 'NandhaBots'
+updates = 'NandhaBots'
 db_channel = -100455582566
 
+WEB_SLLEP = 3*60
+WEB_URL = ''
+PORT = int(os.environ.get("PORT", 8080))
+BIND_ADDRESS = str(os.environ.get("WEB_SERVER_BIND_ADDRESS", "0.0.0.0"))
 
+PREFIXES = ['/', '.', '?', '$', '!']
 MONGO_DB_URI = 'uri'
-MONGO_DB_NAME = 'TNPSC'
+MONGO_DB_NAME = 'TNPSC_ROBOT'
 

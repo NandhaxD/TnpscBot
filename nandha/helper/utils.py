@@ -3,7 +3,6 @@ import io
 import uuid
 
 
-
 def get_size(size):
     """Get size in readable format"""
 

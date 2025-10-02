@@ -1,11 +1,11 @@
 
+
 from nandha import database
 from pymongo import ASCENDING
 
 import re
 
 db = database['files']
-
 
 async def add_file(
     file_unique_id: str,
@@ -39,12 +39,12 @@ async def get_files_by_name(
     ]
     pattern = '.*'.join(words)
     query = {
-      'file_name': {'$regex': pattern, '$options': 'i'}
+        'file_name': {'$regex': pattern, '$options': 'i'}
     }
 
     if category:
-         query.update(
-           {'category': category}
+        query.update(
+        {'category': category}
     )
     projection = {
         'file_id': 1,
@@ -57,20 +57,18 @@ async def get_files_by_name(
     files = await db.files.find(query, projection).sort('_id', 1).limit(limit).to_list(length=None)
     return files if files else []
 
-
-
 async def get_file_by_file_unique_id(file_unique_id: str):
     return await db.find_one(
-      {"file_unique_id": file_unique_id}
+        {"file_unique_id": file_unique_id}
     )
-  
+
 async def remove_file_by_file_unique_id(file_unique_id: str):
     result = await db.delete_one({"file_unique_id": file_unique_id})
     return result.deleted_count > 0
 
 async def update_file_by_file_unique_id(
-  file_unique_id: str,
-  update_data: dict
+    file_unique_id: str,
+    update_data: dict
 ):
     result = await db.update_one(
         {"file_unique_id": file_unique_id},
