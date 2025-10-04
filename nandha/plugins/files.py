@@ -5,7 +5,7 @@ import strings
 from pyrogram import filters, types, enums
 from nandha import bot
 from nandha.helper.decorator import only_devs
-from nandha.db.files import add_file, remove_files
+from nandha.db.files import add_file
 from nandha.utils import get_size, fixed_file_name
 
 
