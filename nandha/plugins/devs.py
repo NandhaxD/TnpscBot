@@ -16,16 +16,16 @@ from pyrogram import filters, types, enums
 
 
 async def pyroaexec(code, bot, message, m, r, chat, ruser, my):
+    
     namespace = {}
-
     exec(
-        "async def __pyroaexec(bot, message, m, r, chat, ruser, my): "
+        "async def __eval__(bot, message, m, r, chat, ruser, my): "
         + "".join(f"\n {l_}" for l_ in code.split("\n")),
         namespace
     )
     
     # Call the function from the namespace
-    return await namespace["__pyroaexec"](bot, message, m, r, chat, ruser, my)
+    return await namespace["__eval__"](bot, message, m, r, chat, ruser, my)
 
 
 
