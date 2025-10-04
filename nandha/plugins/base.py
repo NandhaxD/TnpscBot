@@ -5,7 +5,7 @@ import strings
 from pyrogram import filters
 
 from nandha import bot
-from nandha.decorator import only_private
+from nandha.helper.decorator import only_private
 
 
 @bot.on_message(filters.command('start'))
@@ -24,4 +24,5 @@ async def help(_, message):
     user = m.from_user
     await m.reply_text(
         text=strings.HELP_TEXT
+
     )
