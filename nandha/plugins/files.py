@@ -38,7 +38,7 @@ async def addfiles(_, message: types.Message):
             is_file_added = await add_file(
                 file_name=file_name,
                 file_id=file_id,
-                file_unique_id=file_unique_id
+                file_unique_id=file_unique_id,
                 file_type=file_type
             )
 
