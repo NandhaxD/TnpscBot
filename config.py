@@ -3,8 +3,8 @@ import os
 
 name = 'TNPSC_ROBOT'
 bot_token = os.getenv('TOKEN', '')
-api_id = int(os.getenv('API_ID', 6))
-api_hash = os.getenv('API_HASH', 'eb06d4abfb49dc3eeb1aeb98ae0f581e')
+api_id = int(os.getenv('API_ID', 13257951))
+api_hash = os.getenv('API_HASH', 'd8ea642aedb736d40035bc05f0cfd477')
 
 bot_id = int(bot_token.split(':')[0])
 support = 'NandhaSupport'
