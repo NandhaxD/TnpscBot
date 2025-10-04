@@ -1,7 +1,7 @@
 
 from pyrogram import Client, enums
 from motor.motor_asyncio import AsyncIOMotorClient
-from nandha.fonts import Fonts
+from nandha.helper.fonts import Fonts
 
 import pyrogram
 import config
