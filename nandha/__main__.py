@@ -11,6 +11,10 @@ from aiohttp import web
 
 async def start_pbot():
       await bot.start()
+      await bot.send_message(
+            chat_id=config.support,
+            text=strings.RESTARTED_TEXT
+      )
       LOG.info('Bot Client Started!')
 
   
@@ -34,4 +38,5 @@ if __name__ == "__main__":
     
     loop = asyncio.get_event_loop()
     loop.run_until_complete(asyncio.gather(*async_funcs))
+
 
