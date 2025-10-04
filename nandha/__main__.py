@@ -8,6 +8,12 @@ import asyncio
 from nandha.web import keep_alive, web_server
 from aiohttp import web
 
+
+async def start_pbot():
+      await bot.start()
+      LOG.info('Bot Client Started!')
+
+  
 async def start_services():        
         server = web.AppRunner(web_server())
         await server.setup()
@@ -19,13 +25,13 @@ async def start_services():
         LOG.info("Keep Alive Service Started")
         LOG.info("=========== Initializing Web Server ===========")
 
+
 if __name__ == "__main__":
+    async_funcs = [
+        start_pbot(),
+        start_services()
+    ]
+    
     loop = asyncio.get_event_loop()
-    loop.run_until_complete(start_services())
-    bot.run()
-    LOG.info('Bot Started!')
-    with bot:
-        bot.send_message(
-            chat_id=f"@{config.updates}",
-            text=strings.RESTARTED_TEXT
-        )
+    loop.run_until_complete(asyncio.gather(*async_funcs))
+
