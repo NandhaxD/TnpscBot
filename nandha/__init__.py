@@ -18,10 +18,11 @@ LOG = logging.getLogger(__name__)
 font = Fonts.sim
 
 bot = Client(
-    name='Tnpsc-Robot',
+    name=config.name,
     api_id=config.api_id,
     api_hash=config.api_hash,
     bot_token=config.bot_token,
+    plugins=dict(root='nandha/plugins'),
     parse_mode=enums.ParseMode.HTML
 )
 
